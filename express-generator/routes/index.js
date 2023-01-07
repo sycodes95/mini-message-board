@@ -12,17 +12,29 @@ const messages = [
 ];
 
 const express = require('express');
-const app = express()
 const router = express.Router();
 
-app.set('view engine', 'ejs');
 
 /* GET home page. */
-app.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('index', { title: "Mini Messageboard", messages: messages});
 });
 
+router.get('/new', function(req, res, next) {
+  res.render('form');
+});
 
-app.listen(3000)
+router.post('/new', (req, res, next)=> {
+  const message = {
+    text: req.body.message,
+    user: req.body.user,
+    added: new Date()
+  }
+  messages.push(message)
+  res.redirect('/')
+})
+
+
+
 
 module.exports = router;

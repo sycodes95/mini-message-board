@@ -7,15 +7,19 @@
   <title>Document</title>
 </head>
 <body>
+  <div>
+    <% messages.forEach(msg => {%> 
+      
+      <div><%=msg.user %></div>
+      <div><%=msg.text %></div>
+      <div><%=msg.added %></div>
+      
 
-  <% messages.forEach(msg => {%> 
-    <div>
-      <div><%= msg.user %> </div>
-      <div><%= msg.test %></div>
-      <div><%= msg.added %></div>
-    </div>
-
-  <% }) %> 
+    <% }) %> 
+    
+  </div>
+  <a href="/new">Make a post!</a>
+  
   
 </body>
 </html>
