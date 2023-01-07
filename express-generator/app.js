@@ -41,7 +41,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`))
+app.listen(process.env.PORT, '0.0.0.0');
 
 module.exports = app;
